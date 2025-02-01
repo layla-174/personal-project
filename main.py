@@ -2,7 +2,6 @@ print("You wake up with your head pounding, yet no light provides an explanation
 print("WHAT DO YOU DO?")
 print("inspect your surroundings OR keep sitting")
 
-answer = input()
 with open ("surroundings.txt" , 'r') as file:
     surroundings = file.readlines()
 
@@ -10,9 +9,9 @@ with open ("sitting1.txt" , 'r') as file:
     sitting = file.readlines()
 
 answer = input()
-if answer in surroundings:
-    print:("You look blah blah blah")
-elif answer in sitting:
+if input in surroundings:
+    print("You look blah blah blah")
+elif input in sitting:
     print("You stay sitting")
 else:
     print("That doesn't sound right...try again")
