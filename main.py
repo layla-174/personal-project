@@ -16,7 +16,16 @@ if answer in play:
 
         answer = input()
         if answer+"\n" in surroundings:
-            print("You look blah blah blah")
+            print("You try to look around but there's one problem...you can't see anything. After stumbling for a while you feel something resembling a flashlight, but of course - just your luck - it has no batteries.")
+            print("WHAT DO YOU DO?")
+            print("try to find batteries OR look for a different light source")
+            answer = input()
+            with open ('batteries.txt', 'r') as file:
+                batteries = file.readlines()
+            if answer+"\n" in batteries:
+                print("placeholder")
+
+
         elif answer+"\n" in sitting:
             print("You stay sitting")
         elif answer in save:
