@@ -23,7 +23,7 @@ if answer in play:
             with open ('batteries.txt', 'r') as file:
                 batteries = file.readlines()
             if answer+"\n" in batteries:
-                print("placeholder")
+                print("You continue to feel")
 
 
         elif answer+"\n" in sitting:
