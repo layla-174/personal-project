@@ -12,6 +12,12 @@ if answer in play:
         surroundings = file.readlines()
     with open ('sitting.txt' , 'r') as file:
         sitting = file.readlines()
+    with open ('room1.txt', 'r') as file:
+        library = file.readlines()
+    with open ('room2.txt', 'r') as file:
+        cellar = file.readlines()
+    with open ('room3.txt', 'r') as file:
+        bedroom = file.readlines()
 
         answer = input()
         if answer+"\n" in surroundings:
@@ -24,39 +30,36 @@ if answer in play:
                 batteries = file.readlines()
             with open ('lightsource.txt', 'r') as file:
                 lightsource = file.readlines()
-
+            with open ('lighton.txt', 'r') as file:
+                lighton = file.readlines()
+  
             if answer+"\n" in batteries:
                 print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
                 print("FATE OR LUCK?")
                 print("choose a whole number between 1-3")
-            with open ('room1.txt', 'r') as file:
-                library = file.readlines()
-            with open ('room2.txt', 'r') as file:
-                cellar = file.readlines()
-            with open ('room3.txt', 'r') as file:
-                bedroom = file.readlines()
-            
+                answer = input()
+                if answer+"\n" in library:
+                    print("library")
+                elif answer+"\n" in cellar:
+                    print("cellar")
+                elif answer+"\n" in bedroom:
+                    print("You were in your room the whole time. Oops.")
+                else:
+                    print("idk")
+    
             elif answer+"\n" in lightsource:
                 print("You discard the useless flashlight, and continue to rely on your other senses to find a source of light. Due to the darkness, you bump into a wall, and - despite your initial irritation - the feeling of what seems to be a light switch subdues your anger. Though, you hesitate, thinling it's a trap. You have a gut feeling telling you to go with the safer option.")
                 print("WHAT DO YOU DO?")
                 print("turn on the light OR go back to the flashlight")
-            else:
-                print("idk")
-          
-            with open ('lighton.txt', 'r') as file:
-                lighton = file.readlines()
-            if answer+"\n" in lighton:
-                print("placeholder")
-            #elif answer+"\n" in batteries:
-                 #print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. ")
-                 #find out how to go back 
-            else:
-                print("idk")   
-
+                answer = input()
+                if answer+"\n" in lighton:
+                    print("lights on")
+                elif answer+"\n" in batteries:
+                    continue
+                else:
+                    print("idk")
         elif answer+"\n" in sitting:
             print("You stay sitting")
-        elif answer in save:
-            print("Your progress has been saved.")
         else:
             print("That doesn't sound right...try again")
             print("WHAT DO YOU DO?")
