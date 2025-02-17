@@ -55,7 +55,10 @@ if answer in play:
                 if answer+"\n" in lighton:
                     print("lights on")
                 elif answer+"\n" in batteries:
-                    print("idk")
+                    print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
+                    print("FATE OR LUCK?")
+                    print("choose a whole number between 1-3")
+                    answer = input()
                 else:
                     print("idk")
         elif answer+"\n" in sitting:
