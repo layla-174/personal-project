@@ -55,7 +55,7 @@ if answer in play:
                 if answer+"\n" in lighton:
                     print("lights on")
                 elif answer+"\n" in batteries:
-                    continue
+                    print("idk")
                 else:
                     print("idk")
         elif answer+"\n" in sitting:
