@@ -1,3 +1,4 @@
 light
 turn on the light
 turn the light on
+light on

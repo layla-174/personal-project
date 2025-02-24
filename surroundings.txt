@@ -1,4 +1,3 @@
-surroundings
 look around
 look at surroundings
 look at my surroundings
@@ -10,3 +9,4 @@ inspect your surroundings
 inspect the surroundings
 check my surroundings
 inspect my surroundings
+surroundings
