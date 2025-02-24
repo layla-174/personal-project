@@ -4,3 +4,5 @@ sitting
 sit
 sit down
 stay
+keep sitting anyway
+sit anyway

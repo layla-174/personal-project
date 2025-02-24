@@ -37,16 +37,28 @@ if answer in play:
             lighton = file.readlines()
         with open ('bedroomending.txt', 'r') as file:
             bedroomending = file.readlines()
-  
+        with open ('escaperoute.txt', 'r') as file:
+            escape = file.readlines()
+        with open ('books.txt', 'r') as file:
+            books = file.readlines()
+
         if answer+"\n" in batteries:
             print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
             print("FATE OR LUCK")
             print("choose a whole number between 1-3")
             answer = input()
             if answer+"\n" in library:
-                print("As the light finally gives you an idea of where you are, you notice the concerning amount of books. Shelves upon shleves of just...books. This must be a library.")
+                print("As the light finally gives you an idea of where you are, you notice the concerning amount of books. Shelves upon shleves of just...books. This must be a library. How did you get here? The last time you read was in 3rd grade...That's aside from the point. You're trying to get out.")
                 print("WHAT DO YOU DO?")
                 print("look for an escape route OR see if any books hold clues")
+                answer = input()
+                if answer+"\n" in escape:
+                    print("door")
+                elif answer+"\n" in books:
+                    print("books")
+                else:
+                    print("idk")
+
             elif answer+"\n" in cellar:
                 print("cellar")
             elif answer+"\n" in bedroom:
@@ -86,8 +98,6 @@ if answer in play:
 
     else:
         print("That doesn't sound right...try again")
-        print("WHAT DO YOU DO?")
-        print("inspect your surroundings or stay sitting")
 
 else:
     print("I don't quite understand")
