@@ -1,3 +1,6 @@
 escape
 escape route
 look for an escape route
+find a way to escape
+find an escape route
+look for a way to escape

@@ -53,7 +53,9 @@ if answer in play:
                 print("look for an escape route OR see if any books hold clues")
                 answer = input()
                 if answer+"\n" in escape:
-                    print("door")
+                    print("Thanks to the flashlight, you manage to find a door seemingly in plain see. It's almost...too easy. Just as you suspected, it needs a code to unlock. But wait...looks like someone left a note.")
+                    print("WHAT DO YOU DO?")
+                    print("read the note OR try to guess the code")
                 elif answer+"\n" in books:
                     print("books")
                 else:
