@@ -1,7 +1,7 @@
+
 print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin.")
 answer = input()
 play = ["play", "start playing", "PLAY"]
-save = ["save", "save progress"]
 
 if answer in play:
     print("You wake up with your head pounding, yet no light provides an explanation for why. Your memory doesn't help either - last thing you remember you were sitting in your room. Now you're sitting...well you don't really know where.")
@@ -68,8 +68,5 @@ if answer in play:
             print("WHAT DO YOU DO?")
             print("inspect your surroundings or stay sitting")
 
-elif answer in save:
-            print("Your progress has been saved.")
 else:
-    print("That doesn't sound right...try again")
-    print("Welcome to 'THE ROOM.' To play, type 'play'. To save progress, type 'save'")
+    print("I don't quite understand")
