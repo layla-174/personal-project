@@ -1,7 +1,7 @@
 def starting_text():
     print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin.")
     answer = input()
-    play = ["play", "start playing", "PLAY"]
+    play = ["play", "start playing", "PLAY", "Play"]
 
     if answer in play:
         print("You wake up with your head pounding, yet no light provides an explanation for why. Your memory doesn't help either - last thing you remember you were sitting in your room. Now you're sitting...well you don't really know where.")
@@ -22,15 +22,16 @@ def starting_text():
                 sittingending = file.readlines()
         with open ('lightonending.txt', 'r') as file:
                 lightonending = file.readlines()
+        with open ('cellarending.txt', 'r') as file:
+                cellarending = file.readlines()
 
  
         answer = input()
         if answer+"\n" in surroundings:
-            def surroundings_text():
-                print("You try to look around but there's one problem...you can't see anything. After stumbling for a while you feel something resembling a flashlight, but of course - just your luck - it has no batteries.")
-                print("WHAT DO YOU DO?")
-                print("try to find batteries OR look for a different light source")
-                answer = input()
+            print("You try to look around but there's one problem...you can't see anything. After stumbling for a while you feel something resembling a flashlight, but of course - just your luck - it has no batteries.")
+            print("WHAT DO YOU DO?")
+            print("try to find batteries OR look for a different light source")
+            answer = input()
                 
             with open ('batteries.txt', 'r') as file:
                 batteries = file.readlines()
@@ -62,10 +63,11 @@ def starting_text():
                     elif answer+"\n" in books:
                         print("books")
                     else:
-                        print("idk")
+                        print("That doesn't sound right...try again")
+                        starting_text()
 
                 elif answer+"\n" in cellar:
-                    print("cellar")
+                    print(f"{cellarending}")
                 elif answer+"\n" in bedroom:
                     print(f"{bedroomending}")
                 else:
@@ -85,7 +87,6 @@ def starting_text():
                     answer = input()
                 else:
                     print("idk")
-            surroundings_text()
 
             with open ('sittingending.txt', 'r') as file:
                 sittingending = file.readlines()
@@ -98,15 +99,18 @@ def starting_text():
             print("inspect your surroundings OR keep sitting anyway")
             answer = input()
             if answer+"\n" in surroundings:
-                surroundings_text()
+                print("surroundings")
             elif answer+"\n" in sitting:
                 print(f"{sittingending}")
+            else:
+                print("That doesn't sound right...try again")
+                starting_text()
 
         else:
             print("That doesn't sound right...try again")
 
     else:
-        print("I don't quite understand")
+        print("That doesn't sound right...try again")
         starting_text()
 
 
