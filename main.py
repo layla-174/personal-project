@@ -60,6 +60,15 @@ def starting_text():
                         print("Thanks to the flashlight, you manage to find a door seemingly in plain see. It's almost...too easy. Just as you suspected, it needs a code to unlock. But wait...looks like someone left a note.")
                         print("WHAT DO YOU DO?")
                         print("read the note OR try to guess the code")
+                        answer = input()
+                        if answer in note:
+                            print("yep")
+                        elif answer in guess:
+                           print(f"{guessending}") 
+                        else:
+                            print("That doesn't sound right...try again")
+                            starting_text()
+
                     elif answer+"\n" in books:
                         print("books")
                     else:
@@ -71,7 +80,8 @@ def starting_text():
                 elif answer+"\n" in bedroom:
                     print(f"{bedroomending}")
                 else:
-                    print("idk")
+                    print("That doesn't sound right...try again")
+                    starting_text()
         
             elif answer+"\n" in lightsource:
                 print("You discard the useless flashlight, and continue to rely on your other senses to find a source of light. Due to the darkness, you bump into a wall, and - despite your initial irritation - the feeling of what seems to be a light switch subdues your anger. Though, you hesitate, thinling it's a trap. You have a gut feeling telling you to go with the safer option.")
@@ -86,7 +96,8 @@ def starting_text():
                     print("choose a whole number between 1-3")
                     answer = input()
                 else:
-                    print("idk")
+                    print("That doesn't sound right...try again")
+                    starting_text()
 
             with open ('sittingending.txt', 'r') as file:
                 sittingending = file.readlines()
