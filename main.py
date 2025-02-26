@@ -1,7 +1,8 @@
 def starting_text():
-    print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin.")
+    print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin. Type 'exit' to leave.")
     answer = input()
     play = ["play", "start playing", "PLAY", "Play"]
+    leave = ["EXIT", "exit", "Exit"]
 
     if answer in play:
         print("You wake up with your head pounding, yet no light provides an explanation for why. Your memory doesn't help either - last thing you remember you were sitting in your room. Now you're sitting...well you don't really know where.")
@@ -19,11 +20,15 @@ def starting_text():
         with open ('room3.txt', 'r') as file:
             bedroom = file.readlines()
         with open ('sittingending.txt', 'r') as file:
-                sittingending = file.readlines()
+            sittingending = file.readlines()
         with open ('lightonending.txt', 'r') as file:
-                lightonending = file.readlines()
+            lightonending = file.readlines()
         with open ('cellarending.txt', 'r') as file:
-                cellarending = file.readlines()
+            cellarending = file.readlines()
+        with open ('guess.txt', 'r') as file:
+            guess = file.readlines()
+        with open ('note.txt', 'r') as file:
+            note = file.readlines()
 
  
         answer = input()
@@ -45,6 +50,9 @@ def starting_text():
                 escape = file.readlines()
             with open ('books.txt', 'r') as file:
                 books = file.readlines()
+            with open ('guessending.txt', 'r') as file:
+                guessending = file.readlines()
+
 
             if answer+"\n" in batteries:
                 print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
@@ -57,13 +65,26 @@ def starting_text():
                     print("look for an escape route OR see if any books hold clues")
                     answer = input()
                     if answer+"\n" in escape:
-                        print("Thanks to the flashlight, you manage to find a door seemingly in plain see. It's almost...too easy. Just as you suspected, it needs a code to unlock. But wait...looks like someone left a note.")
+                        print("Thanks to the flashlight, you manage to find a door seemingly in plain sight. It's almost...too easy. As you walk towards the door, your suspicions are confirmed - it needs a code to unlock. But wait...looks like someone left a note.")
                         print("WHAT DO YOU DO?")
                         print("read the note OR try to guess the code")
                         answer = input()
-                        if answer in note:
-                            print("yep")
-                        elif answer in guess:
+                        if answer+"\n" in note:
+                            print("So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                            print("PICK THE FIRST INTEGER")
+                            a = int(input())
+                            print("PICK THE SECOND INTEGER")
+                            b = int(input())
+                            if a+b == 12:
+                                print("you win")
+                            elif a+b != 12:
+                                print(f"{guessending}")
+                            else:
+                                print("That doesn't sound right...try again")
+                                starting_text()  
+
+
+                        elif answer+"\n" in guess:
                            print(f"{guessending}") 
                         else:
                             print("That doesn't sound right...try again")
@@ -90,11 +111,22 @@ def starting_text():
                 answer = input()
                 if answer+"\n" in lighton:
                     print(f"{lightonending}")
+
                 elif answer+"\n" in batteries:
                     print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
                     print("FATE OR LUCK?")
                     print("choose a whole number between 1-3")
                     answer = input()
+                    if answer+"\n" in library:
+                        print("library")
+                    elif answer+"\n" in cellar:
+                        print(f"{cellarending}")
+                    elif answer+"\n" in bedroom:
+                        print(f"({bedroomending})")
+                    else:
+                        print("That doesn't sound right...try again")
+                        starting_text()
+
                 else:
                     print("That doesn't sound right...try again")
                     starting_text()
@@ -119,6 +151,10 @@ def starting_text():
 
         else:
             print("That doesn't sound right...try again")
+            starting_text()
+
+    #elif answer in leave:
+        
 
     else:
         print("That doesn't sound right...try again")
