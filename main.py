@@ -1,5 +1,5 @@
 def starting_text():
-    print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin. Type 'exit' to leave.")
+    print("Welcome to 'ESCAPE'. The aim of the game is in the title - you must escape. You will be given choices that will determine whether or not you succeed in escaping. In some circumstances you will be given a 'FATE OR LUCK' question, where a random choice will also determine the outcome. Type 'play' to begin.")
     answer = input()
     play = ["play", "start playing", "PLAY", "Play"]
     leave = ["EXIT", "exit", "Exit"]
@@ -13,7 +13,7 @@ def starting_text():
             surroundings = file.readlines()
         with open ('sitting.txt' , 'r') as file:
             sitting = file.readlines()
-        with open ('room1.txt', 'r') as file:
+        with open ('room1.txt', 'r') as file: 
             library = file.readlines()
         with open ('room2.txt', 'r') as file:
             cellar = file.readlines()
@@ -137,25 +137,12 @@ def starting_text():
                 sitting = file.readlines()
             
         elif answer+"\n" in sitting:
-            print("You stay sitting down and to nobody's surprise...nothing happens.")
-            print("WHAT DO YOU DO?")
-            print("inspect your surroundings OR keep sitting anyway")
-            answer = input()
-            if answer+"\n" in surroundings:
-                print("surroundings")
-            elif answer+"\n" in sitting:
-                print(f"{sittingending}")
-            else:
-                print("That doesn't sound right...try again")
-                starting_text()
+            print(f"{sittingending}")
 
         else:
             print("That doesn't sound right...try again")
             starting_text()
-
-    #elif answer in leave:
         
-
     else:
         print("That doesn't sound right...try again")
         starting_text()
