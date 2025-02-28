@@ -29,7 +29,8 @@ def starting_text():
             guess = file.readlines()
         with open ('note.txt', 'r') as file:
             note = file.readlines()
-
+        with open ('booksending.txt', 'r') as file:
+            booksending = file.readlines()
  
         answer = input()
         if answer+"\n" in surroundings:
@@ -52,7 +53,6 @@ def starting_text():
                 books = file.readlines()
             with open ('guessending.txt', 'r') as file:
                 guessending = file.readlines()
-
 
             if answer+"\n" in batteries:
                 print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
@@ -82,8 +82,6 @@ def starting_text():
                             else:
                                 print("That doesn't sound right...try again")
                                 starting_text()  
-
-
                         elif answer+"\n" in guess:
                            print(f"{guessending}") 
                         else:
@@ -91,7 +89,7 @@ def starting_text():
                             starting_text()
 
                     elif answer+"\n" in books:
-                        print("books")
+                        print(f"{booksending}")
                     else:
                         print("That doesn't sound right...try again")
                         starting_text()
@@ -114,19 +112,52 @@ def starting_text():
 
                 elif answer+"\n" in batteries:
                     print("You decide to look for the batteries of the flashlight, which in hindsight seems pretty futile. Just as you're about to give up, two metal cylinders almost miraculously make their way into your hand. As you turn on the flashlight, you finally see where you are.")
-                    print("FATE OR LUCK?")
+                    print("FATE OR LUCK")
                     print("choose a whole number between 1-3")
                     answer = input()
                     if answer+"\n" in library:
-                        print("library")
+                        print("As the light finally gives you an idea of where you are, you notice the concerning amount of books. Shelves upon shleves of just...books. This must be a library. How did you get here? The last time you read was in 3rd grade...That's aside from the point. You're trying to get out.")
+                        print("WHAT DO YOU DO?")
+                        print("look for an escape route OR see if any books hold clues")
+                        answer = input()
+                        if answer+"\n" in escape:
+                            print("Thanks to the flashlight, you manage to find a door seemingly in plain sight. It's almost...too easy. As you walk towards the door, your suspicions are confirmed - it needs a code to unlock. But wait...looks like someone left a note.")
+                            print("WHAT DO YOU DO?")
+                            print("read the note OR try to guess the code")
+                            answer = input()
+                            if answer+"\n" in note:
+                                print("So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                                print("PICK THE FIRST INTEGER")
+                                a = int(input())
+                                print("PICK THE SECOND INTEGER")
+                                b = int(input())
+                                if a+b == 12:
+                                    print("you win")
+                                elif a+b != 12:
+                                    print(f"{guessending}")
+                                else:
+                                    print("That doesn't sound right...try again")
+                                    starting_text()  
+                            elif answer+"\n" in guess:
+                                print(f"{guessending}") 
+                            else:
+                                print("That doesn't sound right...try again")
+                                starting_text()
+
+                        elif answer+"\n" in books:
+                            print("books")
+                        else:
+                            print("That doesn't sound right...try again")
+                            starting_text()
+
                     elif answer+"\n" in cellar:
                         print(f"{cellarending}")
                     elif answer+"\n" in bedroom:
-                        print(f"({bedroomending})")
+                        print(f"{bedroomending}")
                     else:
                         print("That doesn't sound right...try again")
                         starting_text()
-
+            
                 else:
                     print("That doesn't sound right...try again")
                     starting_text()
@@ -146,6 +177,5 @@ def starting_text():
     else:
         print("That doesn't sound right...try again")
         starting_text()
-
 
 starting_text()
