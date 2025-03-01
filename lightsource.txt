@@ -14,3 +14,5 @@ try to find a light source
 look for a different light source
 different lightsource
 different light source
+try to look for a different lightsource
+try to look for a different light source

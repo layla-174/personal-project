@@ -2,3 +2,5 @@ guess
 guess the code
 guess code
 code
+try to guess the code
+guess code

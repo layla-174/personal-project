@@ -31,6 +31,8 @@ def starting_text():
             note = file.readlines()
         with open ('booksending.txt', 'r') as file:
             booksending = file.readlines()
+        with open ('finalending.txt', 'r') as file:
+            finalending = file.readlines()
  
         answer = input()
         if answer+"\n" in surroundings:
@@ -70,13 +72,14 @@ def starting_text():
                         print("read the note OR try to guess the code")
                         answer = input()
                         if answer+"\n" in note:
-                            print("So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                            print("THE NOTE: 'So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                            print("It seems like you've got to pick two numbers, and if they add up to the code - you've escaped. If you get it wrong though...let's hope you don't.")
                             print("PICK THE FIRST INTEGER")
                             a = int(input())
                             print("PICK THE SECOND INTEGER")
                             b = int(input())
                             if a+b == 12:
-                                print("you win")
+                                print(f"{finalending}")
                             elif a+b != 12:
                                 print(f"{guessending}")
                             else:
@@ -103,7 +106,7 @@ def starting_text():
                     starting_text()
         
             elif answer+"\n" in lightsource:
-                print("You discard the useless flashlight, and continue to rely on your other senses to find a source of light. Due to the darkness, you bump into a wall, and - despite your initial irritation - the feeling of what seems to be a light switch subdues your anger. Though, you hesitate, thinling it's a trap. You have a gut feeling telling you to go with the safer option.")
+                print("You discard the useless flashlight, and continue to rely on your other senses to find a source of light. Due to the darkness, you bump into a wall, and - despite your initial irritation - the feeling of what seems to be a light switch subdues your anger. Though, you hesitate, thinking it's a trap. You have a gut feeling telling you to go with the safer option.")
                 print("WHAT DO YOU DO?")
                 print("turn on the light OR go back to the flashlight")
                 answer = input()
@@ -126,13 +129,14 @@ def starting_text():
                             print("read the note OR try to guess the code")
                             answer = input()
                             if answer+"\n" in note:
-                                print("So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                                print("THE NOTE: 'So you've found the door for the room, solve this and you will get past it soon, pick any number going from 1 to 10, pick any other add it and then, if the code happens to be the sum, it will be clear that you have won.'")
+                                print("It seems like you've got to pick two numbers, and if they add up to the code - you've escaped. If you get it wrong though...let's hope you don't.")
                                 print("PICK THE FIRST INTEGER")
                                 a = int(input())
                                 print("PICK THE SECOND INTEGER")
                                 b = int(input())
                                 if a+b == 12:
-                                    print("you win")
+                                    print(f"{finalending}")
                                 elif a+b != 12:
                                     print(f"{guessending}")
                                 else:
@@ -145,7 +149,7 @@ def starting_text():
                                 starting_text()
 
                         elif answer+"\n" in books:
-                            print("books")
+                            print(f"{booksending}")
                         else:
                             print("That doesn't sound right...try again")
                             starting_text()
